@@ -1,16 +1,17 @@
-/*
-  空の雛形です。
-  /web-card スキルが要件を聞いてから、このファイルを丸ごと書き換えます。
-*/
-
-/* CSS 変数だけ残しておきます。色の希望はここを変えると全体に反映されます */
 :root {
-  --bg: #14110f;
-  --card: #1e1a17;
-  --text: #f3ebe3;
-  --muted: #b3a79c;
-  --line: rgba(243, 235, 227, 0.12);
-  --accent: #e07a5f;
+  --bg: #dae4ee;
+  --bg-strong: #c3d1dd;
+  --card: #f3f0eb;
+  --card-strong: #ece4dc;
+  --text: #1c2f3d;
+  --muted: #5a7080;
+  --line: rgba(28, 47, 61, 0.94);
+  --accent: #4c6d89;
+  --accent-strong: #35596d;
+  --accent-soft: #dfeaf4;
+  --shadow: 8px 8px 0 rgba(28, 47, 61, 0.8);
+  --radius: 0px;
+  --pixel: 5px;
 }
 
 * {
@@ -21,4 +22,377 @@ html,
 body {
   margin: 0;
   min-height: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background:
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-strong) 100%),
+    radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 45%);
+  color: var(--text);
+  font-family: "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif;
+  image-rendering: pixelated;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(28, 47, 61, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(28, 47, 61, 0.022) 1px, transparent 1px);
+  background-size: 12px 12px;
+  pointer-events: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+p,
+h1,
+h2,
+a {
+  margin: 0;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 440px);
+  padding: 20px 18px 22px;
+  border: var(--pixel) solid var(--line);
+  border-radius: 0;
+  background: linear-gradient(180deg, var(--card) 0%, rgba(255, 255, 255, 0.96) 100%);
+  box-shadow: var(--shadow);
+  filter: saturate(0.98);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 2px solid rgba(28, 47, 61, 0.18);
+  pointer-events: none;
+}
+
+.pixel-decor {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--accent-strong);
+  box-shadow: 0 0 0 4px rgba(28, 47, 61, 0.08);
+}
+
+.pixel-decor-left {
+  top: 14px;
+  left: 14px;
+  box-shadow:
+    0 0 0 4px rgba(28, 47, 61, 0.08),
+    16px 0 0 var(--accent-strong),
+    0 16px 0 var(--accent-strong),
+    16px 16px 0 var(--accent-strong);
+}
+
+.pixel-decor-right {
+  top: 14px;
+  right: 14px;
+  box-shadow:
+    0 0 0 4px rgba(28, 47, 61, 0.08),
+    -16px 0 0 var(--accent-strong),
+    0 16px 0 var(--accent-strong),
+    -16px 16px 0 var(--accent-strong);
+}
+
+.profile {
+  display: grid;
+  gap: 18px;
+  align-items: center;
+}
+
+.photo-wrap {
+  position: relative;
+  overflow: hidden;
+  width: min(100%, 220px);
+  margin: 0 auto;
+  border: var(--pixel) solid var(--line);
+  border-radius: 0;
+  background: linear-gradient(135deg, var(--accent-soft), rgba(255, 255, 255, 0.8));
+  box-shadow: 6px 6px 0 rgba(23, 37, 52, 0.17);
+}
+
+.photo-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(28, 47, 61, 0.04));
+  pointer-events: none;
+}
+
+.photo-wrap img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.profile-copy {
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: "Verdana", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  font-weight: 700;
+}
+
+h1 {
+  margin-top: 10px;
+  font-size: clamp(2rem, 6vw, 2.7rem);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  font-family: "Verdana", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  text-shadow: 3px 3px 0 rgba(26, 42, 45, 0.08);
+}
+
+h1 span {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-family: "Verdana", "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+.role {
+  margin-top: 12px;
+  color: var(--accent-strong);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.intro,
+.works {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.kicker {
+  margin-bottom: 12px;
+  color: var(--accent-strong);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: "Verdana", "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+h2 {
+  font-size: 1.45rem;
+  line-height: 1.4;
+  font-weight: 800;
+  font-family: "Verdana", "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+.intro p:last-child {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.8;
+}
+
+.project-card {
+  margin-top: 14px;
+  padding: 18px 16px;
+  border: var(--pixel) solid var(--line);
+  border-radius: 0;
+  background: linear-gradient(135deg, rgba(218, 231, 240, 0.92), rgba(255, 255, 255, 0.96));
+  box-shadow: 4px 4px 0 rgba(23, 37, 52, 0.08);
+}
+
+.project-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.pill,
+.status {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: "Verdana", "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+.pill {
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: var(--accent-strong);
+  background: rgba(50, 93, 106, 0.08);
+}
+
+.status {
+  color: var(--muted);
+}
+
+.project-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 16px;
+  padding: 8px 12px;
+  border: 3px solid var(--line);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  box-shadow: 3px 3px 0 rgba(23, 37, 52, 0.12);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.project-link::after {
+  content: "→";
+  margin-left: 8px;
+  font-size: 1rem;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 rgba(23, 37, 52, 0.18);
+  outline: none;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.link {
+  position: relative;
+  flex: 1 1 140px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: var(--pixel) solid var(--line);
+  border-radius: 0;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.38);
+  font-weight: 700;
+  font-family: "Verdana", "Hiragino Sans", "Noto Sans JP", sans-serif;
+  text-decoration: none;
+  box-shadow: 4px 4px 0 rgba(23, 37, 52, 0.14);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  border-color: rgba(59, 89, 112, 0.95);
+  box-shadow: 5px 5px 0 rgba(23, 37, 52, 0.18);
+  transform: translate(-1px, -1px);
+  outline: none;
+}
+
+.link.github {
+  background: linear-gradient(135deg, rgba(120, 150, 174, 0.12), rgba(255, 255, 255, 0.76));
+}
+
+.link.x {
+  background: linear-gradient(135deg, rgba(58, 72, 88, 0.08), rgba(255, 255, 255, 0.76));
+}
+
+.corner-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  bottom: 12px;
+  background: var(--accent-strong);
+  box-shadow:
+    0 0 0 0 transparent,
+    10px 0 0 var(--accent-strong),
+    0 10px 0 var(--accent-strong),
+    10px 10px 0 var(--accent-strong);
+}
+
+.corner-dot-left {
+  left: 18px;
+}
+
+.corner-dot-right {
+  right: 18px;
+  box-shadow:
+    0 0 0 0 transparent,
+    -10px 0 0 var(--accent-strong),
+    0 10px 0 var(--accent-strong),
+    -10px 10px 0 var(--accent-strong);
+}
+
+@media (min-width: 800px) {
+  body {
+    padding: 32px 20px;
+  }
+
+  .card {
+    width: min(760px, 100%);
+    padding: 30px 34px 28px;
+  }
+
+  .profile {
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 26px;
+    text-align: left;
+  }
+
+  .photo-wrap {
+    width: 100%;
+    margin: 0;
+  }
+
+  .profile-copy {
+    text-align: left;
+  }
+
+  .intro,
+  .works {
+    margin-top: 30px;
+    padding-top: 24px;
+  }
+
+  .project-card {
+    padding: 18px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
