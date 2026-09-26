@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>竹村 梨沙 | Web名刺</title>
+    <meta
+      name="description"
+      content="竹村梨沙のWeb名刺です。組み込みシステム開発と個人開発をしているプロフィールです。"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="card" aria-label="竹村梨沙のWeb名刺">
+      <div class="pixel-decor pixel-decor-left" aria-hidden="true"></div>
+      <div class="pixel-decor pixel-decor-right" aria-hidden="true"></div>
+
+      <header class="profile">
+        <div class="photo-wrap" aria-label="ドット絵風のフレームに入った写真">
+          <img src="./assets/nenndako3.webp" alt="竹村梨沙の写真" />
+        </div>
+
+        <div class="profile-copy">
+          <p class="eyebrow">Embedded Systems / Personal Projects</p>
+          <h1>
+            竹村 梨沙
+            <span>Takemura Risa</span>
+          </h1>
+          <p class="role">組み込みシステム開発</p>
+        </div>
+      </header>
+
+      <section class="intro" aria-labelledby="about-title">
+        <p class="kicker">About</p>
+        <h2 id="about-title">自己紹介</h2>
+        <p>
+          普段は組み込みでシステム開発をしています。<br />
+          最近個人開発をはじめて「ごはんガチャ」というWebツールを作っています。<br />
+          水耕栽培にも興味があり、イチゴを育てたいと思っています！<br />
+          よろしくお願いいたします。
+        </p>
+      </section>
+
+      <section class="works" aria-labelledby="works-title">
+        <p class="kicker">Works</p>
+        <h2 id="works-title">ごはんガチャ</h2>
+
+        <article class="project-card">
+          <div class="project-head">
+            <span class="pill">ITEM</span>
+            <span class="status">Personal Project</span>
+          </div>
+          <p>
+            「今日何を食べよう？」を楽しく決めるWebツールです。
+            迷ったときに気分や時間帯に合わせて候補を選んでくれます。
+          </p>
+          <a
+            class="project-link"
+            href="https://github.com/illionillion/nfc-web-card-workshop.git"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub: nfc-web-card-workshop
+          </a>
+        </article>
+      </section>
+
+      <nav class="links" aria-label="SNSリンク">
+        <a class="link github" href="https://github.com/Que359014" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="link x" href="https://x.com/Que359014" target="_blank" rel="noopener noreferrer">X</a>
+      </nav>
+
+      <span class="corner-dot corner-dot-left" aria-hidden="true"></span>
+      <span class="corner-dot corner-dot-right" aria-hidden="true"></span>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
